@@ -1,16 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14256" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14243"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14219"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="gesturedetection_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" title="Start" id="frK-GK-pY8">
+                            <connections>
+                                <action selector="start" destination="AgC-eL-Hgc" id="gq6-vk-7Xd"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Stop" id="h3h-dK-e32">
+                            <connections>
+                                <action selector="stop" destination="AgC-eL-Hgc" id="fru-gL-6oZ"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="67" alignment="left" id="5Tm-L7-ytO">
+                            <color key="backgroundColor" red="1" green="0.041197345066586233" blue="0.011095889041408569" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="jelzo" destination="5Tm-L7-ytO" id="C6D-WT-dJC"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="346"/>
+        </scene>
+        <!--Data-->
+        <scene sceneID="gBu-Lt-MRY">
+            <objects>
+                <controller identifier="Data" id="hbd-Py-37S" customClass="MainIC" customModule="gesturedetection_WatchKit_Extension">
+                    <items>
+                        <timer width="1" height="0.29999999999999999" alignment="center" textAlignment="center" id="uPg-yR-bOx">
+                            <fontDescription key="font" type="system" pointSize="35"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                        <group width="1" height="0.14999999999999999" alignment="left" id="AtB-Jc-L5D">
+                            <items>
+                                <label width="0.5" height="1" alignment="left" text="Rec ID" textAlignment="left" id="LEi-lh-xjg"/>
+                                <label width="0.5" height="1" alignment="left" text="30" textAlignment="center" id="3RD-Ah-Gcx"/>
+                            </items>
+                        </group>
+                        <group width="1" height="0.25" alignment="left" id="Gra-1K-mWl">
+                            <items>
+                                <label width="0.5" height="1" alignment="left" text="Rec num" textAlignment="left" id="MTM-r9-XjC"/>
+                                <picker width="0.5" height="1" alignment="left" focusStyle="stack" id="o2I-0D-xmo">
+                                    <connections>
+                                        <action selector="recNumberPickerChanged:" destination="hbd-Py-37S" id="C49-tL-euT"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                        <group width="1" height="0.29999999999999999" alignment="left" id="2aR-IT-DMB">
+                            <items>
+                                <switch width="1" alignment="left" value="YES" title="Record data from phone" id="4cm-Nm-K6R">
+                                    <connections>
+                                        <action selector="recordDataFromPhoneSwitchChanged:" destination="hbd-Py-37S" id="Yoc-Al-tTY"/>
+                                    </connections>
+                                </switch>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="Edh-vO-sLg">
+                        <items>
+                            <menuItem title="Start" icon="accept" id="1cQ-0P-IRN">
+                                <connections>
+                                    <action selector="startButtonPressed" destination="hbd-Py-37S" id="MIX-5Z-Lyx"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop" icon="decline" id="lMd-qR-0LL">
+                                <connections>
+                                    <action selector="stopButtonPressed" destination="hbd-Py-37S" id="1GA-5r-zFr"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="recIDLabel" destination="3RD-Ah-Gcx" id="vWi-jq-vyc"/>
+                        <outlet property="recNumberPicker" destination="o2I-0D-xmo" id="zih-yw-4os"/>
+                        <outlet property="recordDataFromPhoneSwitch" destination="4cm-Nm-K6R" id="Ss7-1F-s7h"/>
+                        <outlet property="timer" destination="uPg-yR-bOx" id="4av-KO-z34"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-20" y="501"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -32,14 +111,14 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="gesturedetection_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="gesturedetection_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
         </scene>

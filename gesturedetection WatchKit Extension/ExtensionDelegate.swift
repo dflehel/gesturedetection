@@ -6,11 +6,59 @@
 //
 
 import WatchKit
+import CoreMotion
+import WatchConnectivity
+import HealthKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate  {
+    
+    
+    
+    
+    
+    
+   // var session = WCSession.default
+    let motion = CMMotionManager()
+    let queue = OperationQueue()
+    var view: InterfaceController?
+    let sessionn = WCSession.default
+    var session: HKWorkoutSession?
+    let healthStore = HKHealthStore()
+    
+    
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("comlite")
+      }
+    func sessionReachabilityDidChange(_ session: WCSession) {
+        if (session.isReachable == false) {
+            print("vege")
+            motion.stopDeviceMotionUpdates()
+            healthStore.end(self.session!)
+        }
+    }
 
+    
+      func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        
+        print("received data: \(message)")
+        if let value = message["iPhone"] as? String {//**7.1
+         // self.label.setText(value)
+            print("terminated")
+            motion.stopDeviceMotionUpdates()
+            healthStore.end(self.session!)
+            
+        }
+      }
+
+    
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+     //   print("elindul")
+     //   sessionn.delegate = self
+     //   sessionn.activate()
+      //  self.starCollecting()
     }
 
     func applicationDidBecomeActive() {
@@ -51,5 +99,118 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             }
         }
     }
-
+    func applicationDidEnterBackground() {
+        print("background")
+       // motion.stopDeviceMotionUpdates()
+       // healthStore.end(session!)
+       // motion.deviceMotionUpdateInterval = 0.1//1.0 / Double(60)
+       // motion.startDeviceMotionUpdates(to: .main) { (deviceMotion: CMDeviceMotion?, error: Error?) in
+                  //if error != nil {
+                   //    print("Encountered error: \(error!)")
+                  // }
+                   
+                 //  if deviceMotion != nil {
+                       
+                       // let currenTime = self.returnCurrentTime()
+                   //    let GyroX = deviceMotion!.rotationRate.x
+                   //    let GyroY = deviceMotion!.rotationRate.y
+                    //   let GyroZ = deviceMotion!.rotationRate.z
+                       
+                    //  let AccX = deviceMotion!.userAcceleration.x;
+                    //   let AccY =  deviceMotion!.userAcceleration.y;
+                    //   let AccZ =  deviceMotion!.userAcceleration.z;
+                   //    let GraX = deviceMotion!.gravity.x
+                  //     let GraY = deviceMotion!.gravity.y
+                  //     let GraZ = deviceMotion!.gravity.z
+                       // print ( "Gyro: \(currenTime) \(GyroX), \(GyroY), \(GyroZ)")
+                       // print ( "Acc : \(currenTime) \(AccX), \(AccY), \(AccZ)")
+                       
+                       
+                       //let sensorOutput = SensorOutput()
+                       
+                     //  sensorOutput.timeStamp = Date()
+                     //  sensorOutput.gyroX = GyroX
+                     //  sensorOutput.gyroY = GyroY
+                     //  sensorOutput.gyroZ = GyroZ
+                     //  sensorOutput.accX = AccX
+                      // sensorOutput.accY = AccY
+                     //  sensorOutput.accZ = AccZ
+                     //  print(GyroX)
+                       //print(AccX)
+                      // self.sensorOutputs.append(sensorOutput)
+                //       let data: [String: Any] = ["watch": "\(AccX)\n\(AccY)\n\(AccZ)\n\(GyroX)\n\(GyroY)\n\(GyroZ)\n\(GraX)\n\(GraY)\n\(GraZ)\n" as Any] //Create your dictionary as per uses
+                 //      self.session.sendMessage(data, replyHandler: nil, errorHandler: nil)
+                   //    print(AccX)
+                       
+               // }
+              // }
+    }
+    
+   // func applicationWillTerminate(_ application: UIApplication){
+    //    print("terminated")
+   // }
+    
+    func starCollecting(){
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = .walking
+        workoutConfiguration.locationType = .outdoor
+        
+        do {
+            session = try HKWorkoutSession(configuration: workoutConfiguration)
+        } catch {
+            fatalError("Unable to create the workout session!")
+       }
+        
+        // Start the workout session and device motion updates.
+        healthStore.start(session!)
+        if !motion.isDeviceMotionAvailable {
+            print("Device Motion is not available.")
+            return
+        }
+        
+         motion.deviceMotionUpdateInterval = 1.0 / Double(50)
+         motion.startDeviceMotionUpdates(to: .main) { (deviceMotion: CMDeviceMotion?, error: Error?) in
+                   if error != nil {
+                        print("Encountered error: \(error!)")
+                    }
+                    
+                    if deviceMotion != nil {
+                        
+                        // let currenTime = self.returnCurrentTime()
+                        let GyroX = deviceMotion!.rotationRate.x
+                       let GyroY = deviceMotion!.rotationRate.y
+                        let GyroZ = deviceMotion!.rotationRate.z
+                        
+                       let AccX = deviceMotion!.userAcceleration.x;
+                        let AccY =  deviceMotion!.userAcceleration.y;
+                        let AccZ =  deviceMotion!.userAcceleration.z;
+                       let GraX = deviceMotion!.gravity.x
+                        let GraY = deviceMotion!.gravity.y
+                        let GraZ = deviceMotion!.gravity.z
+                        // print ( "Gyro: \(currenTime) \(GyroX), \(GyroY), \(GyroZ)")
+                        // print ( "Acc : \(currenTime) \(AccX), \(AccY), \(AccZ)")
+                        
+                        
+                        //let sensorOutput = SensorOutput()
+                        
+                      //  sensorOutput.timeStamp = Date()
+                      //  sensorOutput.gyroX = GyroX
+                      //  sensorOutput.gyroY = GyroY
+                      //  sensorOutput.gyroZ = GyroZ
+                      //  sensorOutput.accX = AccX
+                       // sensorOutput.accY = AccY
+                      //  sensorOutput.accZ = AccZ
+                      //  print(GyroX)
+                        //print(AccX)
+                       // self.sensorOutputs.append(sensorOutput)
+                        let date = NSDate()
+                        let data: [String: Any] = ["watch": "\(date.timeIntervalSince1970),\(AccX),\(AccY),\(AccZ),\(GyroX),\(GyroY),\(GyroZ),\(GraX),\(GraY),\(GraZ)\n" as Any] //Create your dictionary as per uses
+                       self.sessionn.sendMessage(data, replyHandler: nil, errorHandler: nil)
+                    //    print(AccX)
+                        
+                 }
+                }
+    
+    }
+    
 }

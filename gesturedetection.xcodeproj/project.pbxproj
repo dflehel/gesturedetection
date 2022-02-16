@@ -28,6 +28,9 @@
 		D25FBBDD27BBF4420059A874 /* gesturedetection_WatchKit_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25FBBDC27BBF4420059A874 /* gesturedetection_WatchKit_AppTests.swift */; };
 		D25FBBE727BBF4420059A874 /* gesturedetection_WatchKit_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25FBBE627BBF4420059A874 /* gesturedetection_WatchKit_AppUITests.swift */; };
 		D25FBBE927BBF4420059A874 /* gesturedetection_WatchKit_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25FBBE827BBF4420059A874 /* gesturedetection_WatchKit_AppUITestsLaunchTests.swift */; };
+		D25FBC0627BBF8230059A874 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25FBC0527BBF8230059A874 /* HealthKit.framework */; };
+		D25FBC0927BBF8F10059A874 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25FBC0827BBF8F10059A874 /* HealthKit.framework */; };
+		D273F14927BD482400D73D55 /* MainIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273F14827BD482400D73D55 /* MainIC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +133,11 @@
 		D25FBBE227BBF4420059A874 /* gesturedetection WatchKit AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gesturedetection WatchKit AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25FBBE627BBF4420059A874 /* gesturedetection_WatchKit_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gesturedetection_WatchKit_AppUITests.swift; sourceTree = "<group>"; };
 		D25FBBE827BBF4420059A874 /* gesturedetection_WatchKit_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gesturedetection_WatchKit_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D25FBC0327BBF8230059A874 /* gesturedetection.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gesturedetection.entitlements; sourceTree = "<group>"; };
+		D25FBC0527BBF8230059A874 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		D25FBC0727BBF8F10059A874 /* gesturedetection WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "gesturedetection WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		D25FBC0827BBF8F10059A874 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		D273F14827BD482400D73D55 /* MainIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainIC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25FBC0627BBF8230059A874 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25FBC0927BBF8F10059A874 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +199,7 @@
 				D25FBBDB27BBF4420059A874 /* gesturedetection WatchKit AppTests */,
 				D25FBBE527BBF4420059A874 /* gesturedetection WatchKit AppUITests */,
 				D25FBB8C27BBF4390059A874 /* Products */,
+				D25FBC0427BBF8230059A874 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +220,7 @@
 		D25FBB8D27BBF4390059A874 /* gesturedetection */ = {
 			isa = PBXGroup;
 			children = (
+				D25FBC0327BBF8230059A874 /* gesturedetection.entitlements */,
 				D25FBB8E27BBF4390059A874 /* AppDelegate.swift */,
 				D25FBB9027BBF4390059A874 /* SceneDelegate.swift */,
 				D25FBB9227BBF4390059A874 /* ViewController.swift */,
@@ -249,9 +261,11 @@
 		D25FBBC727BBF4400059A874 /* gesturedetection WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D25FBC0727BBF8F10059A874 /* gesturedetection WatchKit Extension.entitlements */,
 				D25FBBC827BBF4400059A874 /* InterfaceController.swift */,
 				D25FBBCA27BBF4400059A874 /* ExtensionDelegate.swift */,
 				D25FBBCC27BBF4400059A874 /* NotificationController.swift */,
+				D273F14827BD482400D73D55 /* MainIC.swift */,
 				D25FBBCE27BBF4400059A874 /* ComplicationController.swift */,
 				D25FBBD027BBF4420059A874 /* Assets.xcassets */,
 				D25FBBD227BBF4420059A874 /* Info.plist */,
@@ -275,6 +289,15 @@
 				D25FBBE827BBF4420059A874 /* gesturedetection_WatchKit_AppUITestsLaunchTests.swift */,
 			);
 			path = "gesturedetection WatchKit AppUITests";
+			sourceTree = "<group>";
+		};
+		D25FBC0427BBF8230059A874 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D25FBC0827BBF8F10059A874 /* HealthKit.framework */,
+				D25FBC0527BBF8230059A874 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,6 +583,7 @@
 				D25FBBCF27BBF4400059A874 /* ComplicationController.swift in Sources */,
 				D25FBBCB27BBF4400059A874 /* ExtensionDelegate.swift in Sources */,
 				D25FBBC927BBF4400059A874 /* InterfaceController.swift in Sources */,
+				D273F14927BD482400D73D55 /* MainIC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,15 +782,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "gesturedetection WatchKit Extension/gesturedetection WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SA9FCXFWMM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "gesturedetection WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "gesturedetection WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = gesturedetection_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = gesturedetection_WatchKit_Extension.ExtensionDelegate;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -789,15 +814,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "gesturedetection WatchKit Extension/gesturedetection WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SA9FCXFWMM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "gesturedetection WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "gesturedetection WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = gesturedetection_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = gesturedetection_WatchKit_Extension.ExtensionDelegate;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -875,6 +901,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = gesturedetection/gesturedetection.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SA9FCXFWMM;
@@ -885,7 +912,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -905,6 +932,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = gesturedetection/gesturedetection.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SA9FCXFWMM;
@@ -915,7 +943,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
