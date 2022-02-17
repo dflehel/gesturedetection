@@ -16,8 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LrM-8q-G8S">
+                                <rect key="frame" x="10" y="85" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-P9-uwe">
+                                <rect key="frame" x="10" y="54" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgc-2O-jea">
+                                <rect key="frame" x="10" y="129" width="394" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <action selector="savebuttonpressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5HU-Ua-Rx5"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBx-MV-fb0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="32" y="198" width="350" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="h8f-tu-V7b"/>
+                                    <constraint firstAttribute="height" constant="500" id="l0L-gs-Grk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -26,19 +49,27 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CBx-MV-fb0" secondAttribute="trailing" id="2Wc-ou-W9D"/>
-                            <constraint firstItem="CBx-MV-fb0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RUW-LA-LHT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CBx-MV-fb0" secondAttribute="bottom" id="cC6-x0-GNz"/>
-                            <constraint firstItem="CBx-MV-fb0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xf7-bY-YXo"/>
+                            <constraint firstItem="rgc-2O-jea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="12v-xO-0pi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IBR-P9-uwe" secondAttribute="trailing" constant="10" id="G1M-Hz-TmT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LrM-8q-G8S" secondAttribute="trailing" constant="10" id="Guo-wI-LD1"/>
+                            <constraint firstItem="IBR-P9-uwe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="OGh-vx-NeD"/>
+                            <constraint firstItem="CBx-MV-fb0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="V4O-9i-sQf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rgc-2O-jea" secondAttribute="trailing" constant="10" id="XpZ-1p-CBI"/>
+                            <constraint firstItem="IBR-P9-uwe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="iLD-Uj-adM"/>
+                            <constraint firstItem="LrM-8q-G8S" firstAttribute="top" secondItem="IBR-P9-uwe" secondAttribute="bottom" constant="10" id="mC0-su-M5s"/>
+                            <constraint firstItem="LrM-8q-G8S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mVV-sT-UQe"/>
+                            <constraint firstItem="CBx-MV-fb0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="npP-p1-Ahm"/>
+                            <constraint firstItem="rgc-2O-jea" firstAttribute="top" secondItem="LrM-8q-G8S" secondAttribute="bottom" constant="10" id="ra0-Kg-Vye"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filename" destination="LrM-8q-G8S" id="xCp-2V-Ow6"/>
                         <outlet property="label" destination="CBx-MV-fb0" id="HjE-77-she"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="50"/>
+            <point key="canvasLocation" x="28.985507246376812" y="49.553571428571423"/>
         </scene>
     </scenes>
     <resources>

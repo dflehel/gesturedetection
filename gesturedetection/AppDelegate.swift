@@ -13,6 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var session :WCSession?
     var window: UIWindow?
+    var filename:String?
+    
+    
+    func updatethefile(filename:String){
+        self.filename = filename
+        
+        self.savefirst(text: "", toDirectory: self.documentDirectory(), withFileName: "\(self.filename!).csv")
+    }
+    
+    
+    
+    
     func sessionDidBecomeInactive(_ session: WCSession) {
       }
       
@@ -40,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
                   self.save(text: value,
                             toDirectory: self.documentDirectory(),
-                            withFileName: fileName)
+                            withFileName: "\(self.filename!).csv")
               DispatchQueue.main.async { if let viewController = self.window?.rootViewController as? ViewController {
                   viewController.label.text = value
                }
